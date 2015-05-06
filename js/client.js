@@ -440,14 +440,14 @@
      * Получение информации из JSON-файлов на сервере
      */
     acquireJSONData: function () {
-      $.getJSON('/json/rules.json', function (data) {
+      $.getJSON('http://s.mafia.x3n.me/json/rules.json', function (data) {
         if (data.rules) {
           // Добавляем список правил в шторку
           for (var i = 0; i < data.rules.length; i++) {
             $('#rules').append($('<li>').html(data.rules[i]));
           }
 
-          $.getJSON('/json/messages.json', function (data) {
+          $.getJSON('http://s.mafia.x3n.me/json/messages.json', function (data) {
             if (data) {
               var lastDate = Object.keys(data).sort().reverse()[0];
               var lastMessage = data[lastDate];
